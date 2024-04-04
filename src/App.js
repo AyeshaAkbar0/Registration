@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Screen1 from './Screen1';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Screen2 from './Screen2';
+import Screen3 from './Screen3';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+      <Router>
+        <Routes>
+    
+          <Route path='/' element={<Screen1/>} />
+          <Route path='/second' element={<Screen2></Screen2>}/>
+          <Route path='/third' element={<Screen3></Screen3>}/>
+       
+        </Routes>
+      </Router>
+     
+
+      
+      
   );
 }
 
