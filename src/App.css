@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+/* styles.css */
+
+/* Your custom styles */
+.radio-label {
+  color: grey;
+  margin-right: 10px;
+  position: relative;
+}
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-label::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.radio-label input:checked +::before {
+  background-color: white;
+}
+
+/* app.css */
+
+/* Style the email input box */
+input[type="email"] {
+  background-color: black;
+  color: grey; /* Text color when text is entered */
+}
+
+/* Style the placeholder text */
+input[type="email"]::placeholder {
+  color: grey; /* Placeholder text color */
+}

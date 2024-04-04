@@ -1,19 +1,44 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer';
+import termDocx from './asset/page2/doc.pdf';
 
-export default function Screen3() {
-    const navigate = useNavigate();
-    const StartClicked=()=>{
-        navigate('/')
-    }
+function App1() {
+  const [error, setError] = useState(null);
+
+  const docs = [
+    { uri: termDocx, fileType: 'docx', fileName: 'demo.docx' } // Local File
+  ];
+
   return (
-    <div
-    // style={{marginLeft:400, marginTop:100}}
-    >
-         <h2  style={{ marginLeft:450, marginTop:200, color:'#add8e6'}}>Thankyou for your information</h2>
-      <button onClick={StartClicked} 
-      style={{fontWeight:'bold',marginTop:100, width:200, height:50, marginLeft:600, backgroundColor:'#add8e6', borderRadius:20}}
-      >Let's Start again</button>
-    </div>
-  )
+    <>
+      {error && <p>Error: {error.message}</p>}
+      <DocViewer
+        documents={docs}
+        pluginRenderers={DocViewerRenderers}
+        style={{ height: 1000 }}
+        onError={setError}
+      />
+    </>
+  );
 }
+
+export default App1;
+
+
+
+
+
+
+
+
+    // <div className="terms-and-conditions-screen">
+    //   <img src={bg} alt="Background" className="background-image" />
+    //   <div className="terms-and-conditions-image">
+    //     <img src={term} alt="Terms and Conditions" />
+    //     <div className="pdf-container">
+    //       <Document file='./asset/page2/doc.pdf'>
+    //         <Page pageNumber={1} />
+    //       </Document>
+    //     </div>
+    //   </div>
+    // </div>

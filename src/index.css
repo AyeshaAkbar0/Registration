@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.radio-label {
+  color: grey;
+  margin-right: 10px;
+  position: relative;
+}
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-label::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.radio-label input:checked +::before {
+  background-color: white;
+}
