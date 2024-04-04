@@ -8,10 +8,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function Screen2() {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nation, setNation] = useState("");
+  const [day ,setDay] = useState("");
+  const [month, setMonth]= useState("");
+  const [year , setYear] = useState("");
+
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -21,18 +26,34 @@ export default function Screen2() {
     setPassword(event.target.value);
   };
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
   };
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
+
 
   const handleCountrySelect = (eventKey) => {
     setNation(eventKey);
   };
 
+  const handleDaySelect=()=>{
+
+  }
+  const handleMonthSelect=()=>{
+
+  }
+const handleYearSelect=()=>{
+
+}
+
   const Register = () => {
     const user = {
-      firstName: name,
-      password: password,
+      firstName: firstName,
+      lastName :lastName,
+      //dateOfBirth:
+      //password: password,
       email: email,
       country: nation,
     };
@@ -55,7 +76,33 @@ export default function Screen2() {
         Registeration Form
       </h2>
       <Form style={{ width: 400, marginLeft: 500, marginTop: 50 }}>
+      {[ 'radio'].map((type) => (
+        <div key={`inline-${type}`} className="mb-3">
+          <Form.Check
+            inline
+            label="Ms"
+            name="group1"
+            type={type}
+            id={`inline-${type}-1`}
+          />
+          <Form.Check
+            inline
+            label="Mrs"
+            name="group1"
+            type={type}
+            id={`inline-${type}-2`}
+          />
+          <Form.Check
+            inline
+            name="group1"
+            label="Mr"
+            type={type}
+            id={`inline-${type}-3`}
+          />
+        </div>
+      ))}
         <Form.Group className="mb-3" controlId="formBasicEmail">
+
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -67,12 +114,19 @@ export default function Screen2() {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-        <Form.Label>Full Name</Form.Label>
+        <Form.Label>First Name</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter Name"
-          value={name}
-          onChange={handleNameChange}
+          value={firstName}
+          onChange={handleFirstNameChange}
+        />
+        <Form.Label>Last Name</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter Name"
+          value={lastName}
+          onChange={handleLastNameChange}
         />
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
@@ -339,31 +393,7 @@ export default function Screen2() {
         >
           Submit
         </Button>
-        {[ 'radio'].map((type) => (
-        <div key={`inline-${type}`} className="mb-3">
-          <Form.Check
-            inline
-            label="Ms"
-            name="group1"
-            type={type}
-            id={`inline-${type}-1`}
-          />
-          <Form.Check
-            inline
-            label="Mrs"
-            name="group1"
-            type={type}
-            id={`inline-${type}-2`}
-          />
-          <Form.Check
-            inline
-            name="group1"
-            label="Mr"
-            type={type}
-            id={`inline-${type}-3`}
-          />
-        </div>
-      ))}
+       
       </Form>
     </div>
   );
