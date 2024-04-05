@@ -25,3 +25,30 @@ const MyDocument = () => (
   );
 
  export default MyDocument; 
+
+
+// import React, { useEffect, useState } from 'react';
+// import mammoth from 'mammoth';
+// import exampleDocx from './asset/page2/term.docx'; // Path to your Word file
+
+// function WordDocumentRenderer() {
+//   const [documentText, setDocumentText] = useState('');
+
+//   useEffect(() => {
+//     async function loadDocument() {
+//       const result = await mammoth.extractRawText({ arrayBuffer: exampleDocx });
+//       setDocumentText(result.value);
+//     }
+
+//     loadDocument();
+//   }, []);
+
+//   return (
+//     <div>
+//       <h1>Word Document Content:</h1>
+//       <div>{documentText}</div>
+//     </div>
+//   );
+// }
+
+// export default WordDocumentRenderer;
